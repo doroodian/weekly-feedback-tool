@@ -1,8 +1,8 @@
 # Weekly Project Feedback Tool — Backlog
 
 ## 1. Project setup
-Goal: An empty Next.js project with a passing test.
-Description: Scaffold a Next.js (App Router, TypeScript) project, add a test runner, and write one trivial test that passes. Set up linting/formatting config so future tasks have a consistent baseline.
+Goal: An empty FastAPI project with a passing test.
+Description: Scaffold a FastAPI project managed with `uv`, add pytest, and write one trivial test (e.g. `tests/test_home.py`) that passes. Set up linting/formatting config so future tasks have a consistent baseline.
 
 ## 2. Database schema
 Goal: Core tables exist in Supabase and are migratable.
@@ -10,7 +10,7 @@ Description: Create Postgres migrations for `projects`, `questions`, `weekly_cyc
 
 ## 3. Dashboard auth
 Goal: A project lead can log in to the dashboard.
-Description: Wire up Supabase auth (email/password or magic link) for the Next.js app, with a protected route group that redirects unauthenticated users to a login page. No project-specific logic yet — just working sign-in/sign-out.
+Description: Wire up authentication (e.g. Supabase Auth, called from FastAPI) for the dashboard, with protected routes that redirect unauthenticated users to a login page. No project-specific logic yet — just working sign-in/sign-out.
 
 ## 4. Project CRUD in dashboard
 Goal: A logged-in lead can create, view, and edit projects.
@@ -42,7 +42,7 @@ Description: Handle incoming Slack messages/interactions from the DM in Task 9, 
 
 ## 11. Scheduler: weekly trigger
 Goal: Weekly prompts fire automatically at each project's configured time.
-Description: Add a Vercel Cron (or Supabase scheduled function) that runs periodically, finds projects due for their weekly send based on Task 6's schedule, and invokes the send logic from Task 9.
+Description: Add an APScheduler job that runs periodically, finds projects due for their weekly send based on Task 6's schedule, and invokes the send logic from Task 9.
 
 ## 12. Scheduler: reminders
 Goal: Non-respondents get a reminder before the deadline.

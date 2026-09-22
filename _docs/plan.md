@@ -29,8 +29,9 @@ The project lead configures each project via a web dashboard:
 Built for internal use first, with an eye toward being a usable product for others.
 
 ## Tech Stack
-- **Dashboard + API**: Next.js (App Router), deployed on Vercel
-- **Slack bot**: Slack Bolt (JS), running as serverless/Edge functions (or a small Node process if socket mode is needed)
-- **Database**: Supabase (Postgres) — also provides auth and an admin UI
-- **Scheduler**: Vercel Cron or Supabase scheduled Edge Functions, for weekly prompts and reminders
-- **LLM**: Claude API, called from a serverless function to generate the digest
+- **Dashboard + API**: FastAPI (Python), managed with `uv`
+- **Slack bot**: Slack Bolt for Python, running in the same app
+- **Database**: Postgres (via SQLAlchemy) — Supabase can still host it, for auth and an admin UI
+- **Scheduler**: APScheduler, for weekly prompts and reminders
+- **LLM**: Claude API, called via the Python SDK to generate the digest
+- **Tests**: pytest, run with `uv run pytest`
