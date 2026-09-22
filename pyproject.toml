@@ -1,0 +1,32 @@
+[project]
+name = "weekly-feedback-tool"
+version = "0.1.0"
+description = "Weekly project feedback tool: Slack-based collection and LLM digests"
+authors = [
+    { email = "doroodian91@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
